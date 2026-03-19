@@ -46,13 +46,14 @@ export default function PropertyDetails() {
   }
 
   const fotos = proyecto.fotos && proyecto.fotos.length > 0 ? proyecto.fotos : ['https://images.unsplash.com/photo-1600607687939-ce8a6c25118c'];
+  const BASE_BACKEND_URL = API_URL.replace('/api', '');
 
   return (
     <div className="min-h-screen bg-surface pb-20">
       {/* Multimedia Header: Carousel */}
       <div className="h-[60vh] bg-black relative group overflow-hidden">
         <img 
-          src={fotos[currentFotoIndex].startsWith('http') ? fotos[currentFotoIndex] : `http://127.0.0.1:4000${fotos[currentFotoIndex]}`} 
+          src={fotos[currentFotoIndex].startsWith('http') || fotos[currentFotoIndex].startsWith('/') ? fotos[currentFotoIndex] : `${BASE_BACKEND_URL}${fotos[currentFotoIndex]}`} 
           className="w-full h-full object-cover opacity-90 transition-all duration-700 scale-105 group-hover:scale-100" 
           alt={proyecto.titulo} 
         />

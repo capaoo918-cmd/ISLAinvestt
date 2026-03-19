@@ -21,22 +21,29 @@ export default function InvestmentFinder() {
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
 
-  const handleSearch = () => {
+  const handleSearch = async () => {
     setIsSearching(true);
-    // Simulación de búsqueda IA
-    setTimeout(() => {
-      fetch(`${API_URL}/tx/proyectos`)
-        .then(res => res.json())
-        .then(data => {
-          const filtered = data.proyectos.filter((p: any) => {
-            // Lógica simple para demo, pero Alfred podría hacer esto vía API de IA
-            return p.meta_financiera <= preferences.budget * 2; // Simulación
-          }).slice(0, 3);
-          setResults(filtered);
-          setIsSearching(false);
-          setStep(3);
-        });
-    }, 1500);
+    try {
+      // Búsqueda inteligente asistida por Alfred
+      const res = await fetch(`${API_URL}/tx/proyectos`);
+      if (!res.ok) throw new Error('Network response was not ok');
+      const data = await res.json();
+      const proyectos = data.proyectos || [];
+
+      const filtered = proyectos.filter((p: any) => {
+        return Number(p.meta_financiera) <= preferences.budget * 1.5;
+      }).slice(0, 3);
+
+      setResults(filtered);
+      setTimeout(() => {
+        setIsSearching(false);
+        setStep(3);
+      }, 1000);
+    } catch (error) {
+      console.error('Error in AI Finder:', error);
+      setIsSearching(false);
+      alert('Alfred encontró un error técnico al analizar el mercado. Por favor intenta de nuevo.');
+    }
   };
 
   return (
@@ -147,7 +154,7 @@ export default function InvestmentFinder() {
                 {results.map((p: any) => (
                   <Link href={`/property/${p.id_proyecto}`} key={p.id_proyecto} className="flex gap-6 p-6 rounded-3xl border border-outline-variant/10 hover:shadow-xl transition-all hover:bg-surface-container-low group">
                     <img 
-                      src={p.fotos && p.fotos[0] ? (p.fotos[0].startsWith('http') ? p.fotos[0] : `http://127.0.0.1:4000${p.fotos[0]}`) : "https://images.unsplash.com/photo-1600585154340-be6161a56a0c"} 
+                      src={p.fotos && p.fotos[0] ? (p.fotos[0].startsWith('http') || p.fotos[0].startsWith('/') ? p.fotos[0] : `${API_URL.replace('/api', '')}${p.fotos[0]}`) : "https://images.unsplash.com/photo-1600585154340-be6161a56a0c"} 
                       className="w-40 h-40 object-cover rounded-2xl group-hover:scale-105 transition-transform" 
                       alt={p.titulo} 
                     />

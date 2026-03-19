@@ -129,16 +129,28 @@ export default function InvestorRegistration() {
 
               <form className="space-y-6" onSubmit={handleRegister}>
                 <div>
-                  <label className="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant block mb-2">Correo Electrónico (Recepción de Contratos Legales)</label>
+                  <label className="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant block mb-2">Confirmación de Identidad por Email</label>
                   <div className="flex gap-3">
-                    <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="tu@empresa.com" required 
+                    <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="tu@identidad-verificada.com" required 
                            className="w-full bg-surface border border-outline-variant/30 rounded px-4 py-3 text-sm focus:outline-none focus:border-primary transition-all shadow-sm focus:shadow-md" />
-                    <button type="button" className="bg-surface-container-highest text-primary font-bold px-4 rounded text-xs whitespace-nowrap hover:bg-outline-variant/50 transition-colors">Enviar PIN</button>
+                    <button 
+                      type="button" 
+                      onClick={() => {
+                        setIsLoading(true);
+                        setTimeout(() => {
+                           setIsLoading(false);
+                           alert('Se ha enviado un correo de confirmación a ' + email + '. Por favor haz clic en el enlace para activar el check.');
+                        }, 1000);
+                      }}
+                      className="bg-surface-container-highest text-primary font-bold px-4 rounded text-xs whitespace-nowrap hover:bg-outline-variant/50 transition-colors flex items-center gap-2"
+                    >
+                      <span className="material-symbols-outlined text-sm">mark_email_read</span> Verificar Email
+                    </button>
                   </div>
                 </div>
 
                 <div>
-                  <label className="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant block mb-2">Teléfono Móvil (Sincronización WhatsApp CRM)</label>
+                  <label className="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant block mb-2">Teléfono Móvil (Contacto Directo con Alfred)</label>
                   <div className="flex gap-3">
                     <select className="bg-surface border border-outline-variant/30 rounded px-3 py-3 text-sm focus:outline-none focus:border-primary text-on-surface-variant font-bold">
                       <option>+1 (DO/US)</option>

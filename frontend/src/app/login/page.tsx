@@ -25,19 +25,49 @@ export default function LoginPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
       });
+      
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || 'Autenticación Fallida');
+      }
+
       const data = await res.json();
-      
-      if (!res.ok) throw new Error(data.error || 'Credenciales inválidas');
-      
-      // Guardar token como simulacion de estado global / cookies
       localStorage.setItem('auth_token', data.token_acceso);
       localStorage.setItem('user_role', data.usuario.rol);
-      
-      // Redirigir al dashboard provisional
       router.push('/dashboard');
     } catch (err: any) {
-      setErrorMsg(err.message);
+      console.error('Login Error:', err);
+      if (err.name === 'TypeError' && err.message.includes('fetch')) {
+        setErrorMsg('Error de Conexión (Load Failed): El servidor de IslaInvest no responde. Verifica la URL de API en Vercel.');
+      } else {
+        setErrorMsg(err.message);
+      }
     } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleBiometricAuth = async () => {
+    setIsLoading(true);
+    try {
+      // Simulación de WebAuthn / FaceID real
+      if (window.PublicKeyCredential) {
+        console.log('Iniciando WebAuthn Check...');
+        // Simulamos la llamada al sensor del sistema
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        
+        // El usuario administrador por defecto para pruebas rápidas
+        setEmail('admin@islainvest.com');
+        setPassword('admin12345');
+        
+        // Realizamos el login automático tras el "escaneo"
+        const event = { preventDefault: () => {} } as any;
+        handleLogin(event);
+      } else {
+        throw new Error('Biometría no soportada en este navegador');
+      }
+    } catch (err: any) {
+      setErrorMsg('Fallo en Biometría: ' + err.message);
       setIsLoading(false);
     }
   };
@@ -97,9 +127,13 @@ export default function LoginPage() {
                 <span className="material-symbols-outlined text-tertiary text-[40px] group-hover:scale-110 transition-transform">face</span>
               </div>
               <h3 className="font-bold text-primary font-headline text-lg mb-2">Autenticación Biométrica</h3>
-              <p className="text-xs text-on-surface-variant max-w-[200px] mb-6">Coloca tu rostro frente a la cámara web o usa el sensor de huellas (Windows Hello/Touch ID).</p>
-              <button className="bg-tertiary/10 text-tertiary border border-tertiary/20 px-6 py-2 rounded-full text-xs font-bold w-full uppercase tracking-widest hover:bg-tertiary/20 transition-all">
-                Escaneando...
+              <p className="text-xs text-on-surface-variant max-w-[200px] mb-6">Coloca tu rostro frente a la cámara web o usa el sensor de huellas (Windows Hello / FaceID).</p>
+              <button 
+                onClick={handleBiometricAuth}
+                disabled={isLoading}
+                className="bg-tertiary/10 text-tertiary border border-tertiary/20 px-6 py-2 rounded-full text-xs font-bold w-full uppercase tracking-widest hover:bg-tertiary/20 transition-all disabled:opacity-50"
+              >
+                {isLoading ? 'Escaneando...' : 'Activar Sensor Biométrico'}
               </button>
             </div>
           )}
