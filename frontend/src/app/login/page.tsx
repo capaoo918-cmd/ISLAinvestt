@@ -3,9 +3,11 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { usePasskeys } from '@/hooks/usePasskeys';
 
 export default function LoginPage() {
   const router = useRouter();
+  const { authenticatePasskey } = usePasskeys();
   const [useFaceID, setUseFaceID] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -34,6 +36,7 @@ export default function LoginPage() {
       const data = await res.json();
       localStorage.setItem('auth_token', data.token_acceso);
       localStorage.setItem('user_role', data.usuario.rol);
+      localStorage.setItem('user_email', email); // Guardamos email para WebAuthn posterior
       router.push('/dashboard');
     } catch (err: any) {
       console.error('Login Error:', err);
@@ -49,25 +52,31 @@ export default function LoginPage() {
 
   const handleBiometricAuth = async () => {
     setIsLoading(true);
+    setErrorMsg('');
     try {
-      // Simulación de WebAuthn / FaceID real
-      if (window.PublicKeyCredential) {
-        console.log('Iniciando WebAuthn Check...');
-        // Simulamos la llamada al sensor del sistema
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        
-        // El usuario administrador por defecto para pruebas rápidas
-        setEmail('admin@islainvest.com');
-        setPassword('admin12345');
-        
-        // Realizamos el login automático tras el "escaneo"
-        const event = { preventDefault: () => {} } as any;
-        handleLogin(event);
+      // Solicitar email para el login biométrico (o usar el guardado)
+      const targetEmail = email || localStorage.getItem('user_email');
+      
+      if (!targetEmail) {
+        setErrorMsg('Introduce tu correo primero para usar FaceID');
+        setIsLoading(false);
+        return;
+      }
+
+      const result = await authenticatePasskey(targetEmail);
+      
+      if (result.verified) {
+        localStorage.setItem('auth_token', result.token_acceso);
+        localStorage.setItem('user_role', result.usuario.rol);
+        localStorage.setItem('user_email', targetEmail);
+        router.push('/dashboard');
       } else {
-        throw new Error('Biometría no soportada en este navegador');
+        setErrorMsg('Firma biométrica no reconocida. Intenta con tu clave.');
       }
     } catch (err: any) {
-      setErrorMsg('Fallo en Biometría: ' + err.message);
+      console.error('Biometric Auth Error:', err);
+      setErrorMsg('Fallo en FaceID: Asegúrate de haber vinculado este dispositivo antes.');
+    } finally {
       setIsLoading(false);
     }
   };

@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { usePasskeys } from '@/hooks/usePasskeys';
 
 interface Inversion {
   id_inversion: number;
@@ -15,9 +16,11 @@ interface Inversion {
 
 export default function InvestorDashboard() {
   const router = useRouter();
+  const { registerPasskey } = usePasskeys();
   const [inversiones, setInversiones] = useState<Inversion[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState<any>(null);
+  const [isRegisteringPasskey, setIsRegisteringPasskey] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('auth_token');
@@ -26,22 +29,38 @@ export default function InvestorDashboard() {
       return;
     }
 
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
+        const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
+        // Obtener datos del usuario de los meta-datos (email) para el registro de passkey
+        const userEmail = localStorage.getItem('user_email') || 'admin@islainvest.com';
+        setUser({ email: userEmail });
 
-    // Fetch user and stats
-    fetch(`${API_URL}/tx/pizarron`, {
-      headers: { 'Authorization': `Bearer ${token}` }
-    })
-      .then(res => res.json())
-      .then(data => {
-        setInversiones(data.inversiones || []);
-        setIsLoading(false);
-      })
-      .catch(err => {
-        console.error('Error fetching stats:', err);
-        setIsLoading(false);
-      });
-  }, [router]);
+        fetch(`${API_URL}/tx/pizarron`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        })
+          .then(res => res.json())
+          .then(data => {
+            setInversiones(data.inversiones || []);
+            setIsLoading(false);
+          })
+          .catch(err => {
+            console.error('Error fetching stats:', err);
+            setIsLoading(false);
+          });
+      }, [router]);
+
+  const handleRegisterFaceID = async () => {
+    setIsRegisteringPasskey(true);
+    try {
+      const success = await registerPasskey(user.email);
+      if (success) {
+        alert('¡Dispositivo vinculado con éxito! Ahora puedes entrar usando FaceID.');
+      }
+    } catch (error) {
+      alert('Error al vincular el dispositivo. Asegúrate de tener activada la biometría en tu móvil.');
+    } finally {
+      setIsRegisteringPasskey(false);
+    }
+  };
 
   const totalInvertido = inversiones.reduce((acc, inv) => acc + Number(inv.monto_invertido), 0);
 
@@ -61,6 +80,13 @@ export default function InvestorDashboard() {
           <Link href="/portfolio" className="flex items-center gap-3 p-3 rounded-lg font-medium text-sm hover:bg-white/5 transition-colors opacity-50 cursor-not-allowed">
             <span className="material-symbols-outlined">account_balance_wallet</span> Portafolio
           </Link>
+          <button 
+            onClick={handleRegisterFaceID}
+            disabled={isRegisteringPasskey}
+            className={`flex items-center gap-3 p-3 rounded-lg font-bold text-sm transition-all ${isRegisteringPasskey ? 'bg-white/5 opacity-50' : 'hover:bg-white/5 text-secondary-fixed'}`}
+          >
+            <span className="material-symbols-outlined">{isRegisteringPasskey ? 'sync' : 'face'}</span> {isRegisteringPasskey ? 'Sincronizando...' : 'Vincular FaceID'}
+          </button>
         </nav>
         <div className="mt-auto pt-6 border-t border-white/10">
           <button onClick={() => { localStorage.clear(); router.push('/login'); }} className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest hover:text-secondary-fixed transition-colors">

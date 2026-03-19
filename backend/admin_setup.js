@@ -17,12 +17,12 @@ async function setupAdmin() {
     const password = 'admin12345';
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Insertar o actualizar admin
+    // Insertar o actualizar admin con el estado KYC correcto ('aprobado')
     const query = `
       INSERT INTO usuarios (id_usuario, email, password_hash, rol, estado_kyc)
-      VALUES (gen_random_uuid(), $1, $2, 'admin', 'verificado')
+      VALUES (gen_random_uuid(), $1, $2, 'admin', 'aprobado')
       ON CONFLICT (email) DO UPDATE 
-      SET password_hash = $2, rol = 'admin', estado_kyc = 'verificado';
+      SET password_hash = $2, rol = 'admin', estado_kyc = 'aprobado';
     `;
 
     await client.query(query, [email, hashedPassword]);
