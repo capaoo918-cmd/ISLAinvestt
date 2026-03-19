@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Iniciar Sesión | IslaInvest</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00333c",
+                        "secondary-fixed": "#ffe088",
+                        "tertiary": "#003522",
+                        "surface": "#f8fafa",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f2f4f4",
+                        "surface-container-highest": "#e1e3e3",
+                        "outline-variant": "#bfc8ca",
+                        "on-surface": "#191c1d",
+                        "on-surface-variant": "#40484a",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-nav { background: rgba(248, 250, 250, 0.9); backdrop-filter: blur(20px); }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface h-screen flex flex-col pt-20">
+    <header class="fixed top-0 z-50 w-full glass-nav border-b border-outline-variant/20">
+        <div class="max-w-7xl mx-auto px-8 flex justify-between items-center h-20">
+            <div class="text-2xl font-bold tracking-tight text-primary font-headline"><a href="index.html">IslaInvest</a></div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a class="text-on-surface-variant font-medium hover:text-primary transition-colors" href="register.html">Crear Cuenta (Registro)</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 flex flex-col justify-center items-center px-6">
+        <div class="w-full max-w-md bg-surface-container-lowest p-8 border border-outline-variant/20 shadow-lg rounded-xl">
+            <div class="text-center mb-8">
+                <span class="material-symbols-outlined text-4xl text-primary mb-2">lock_person</span>
+                <h1 class="font-headline text-2xl font-extrabold text-primary mb-2">Acceso a Bóveda</h1>
+                <p class="text-sm text-on-surface-variant">Ingresa tus credenciales para ver el estado de tu portafolio.</p>
+            </div>
+
+            <!-- Div de Mensajes de Error/Éxito -->
+            <div id="alertBox" class="hidden rounded-md p-4 mb-6 text-sm font-medium"></div>
+
+            <form id="loginForm" class="space-y-6">
+
+                <!-- Correo Electrónico -->
+                <div>
+                    <label for="email" class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant block mb-1">Correo Electrónico</label>
+                    <div class="relative">
+                        <span class="material-symbols-outlined absolute left-3 top-3 text-outline-variant text-[20px]">mail</span>
+                        <input type="email" id="email" required placeholder="inversor@ejemplo.com" class="pl-10 w-full bg-surface-container-low border border-outline-variant/30 rounded p-3 text-sm text-primary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors">
+                    </div>
+                </div>
+
+                <!-- Contraseña -->
+                <div>
+                    <label for="password" class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant flex justify-between items-center mb-1">
+                        <span>Contraseña</span>
+                        <a href="#" class="text-primary hover:underline hover:text-tertiary normal-case tracking-normal">¿Olvidaste la clave?</a>
+                    </label>
+                    <div class="relative">
+                        <span class="material-symbols-outlined absolute left-3 top-3 text-outline-variant text-[20px]">key</span>
+                        <input type="password" id="password" required placeholder="••••••••" class="pl-10 w-full bg-surface-container-low border border-outline-variant/30 rounded p-3 text-sm text-primary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors">
+                    </div>
+                </div>
+
+                <!-- Botón -->
+                <button type="submit" id="submitBtn" class="w-full bg-primary text-on-primary py-3.5 rounded font-bold tracking-wider hover:bg-primary/90 transition-all shadow-md active:scale-[0.99] flex justify-center items-center gap-2 text-sm uppercase">
+                    Iniciar Sesión
+                </button>
+            </form>
+
+            <div class="mt-8 text-center border-t border-outline-variant/20 pt-6">
+                <p class="text-xs text-on-surface-variant">
+                    ¿No tienes bóveda aún? <a href="register.html" class="font-bold text-primary hover:underline">Registrarse aquí</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-surface-container-low mt-auto border-t border-outline-variant/20">
+        <div class="max-w-7xl mx-auto px-8 py-6 text-center text-[10px] font-medium uppercase tracking-widest text-on-surface-variant">
+            © 2024 IslaInvest. Sistema Protegido por SSL.
+        </div>
+    </footer>
+
+    <!-- LÓGICA DE JAVASCRIPT: Frontend -> Backend -->
+    <script>
+        // Manejo del formulario
+        const loginForm = document.getElementById('loginForm');
+        const alertBox = document.getElementById('alertBox');
+        const submitBtn = document.getElementById('submitBtn');
+
+        const showAlert = (message, type) => {
+            alertBox.classList.remove('hidden', 'bg-error', 'text-white', 'bg-success-container', 'text-success');
+            if(type === 'error'){
+                alertBox.classList.add('bg-error', 'text-white');
+            } else {
+                alertBox.classList.add('bg-success-container', 'text-success');
+            }
+            alertBox.textContent = message;
+        }
+
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // UI feedback
+            submitBtn.textContent = 'AUTENTICANDO...';
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-70');
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                // LLAMADA AL BACKEND DE NODE.JS
+                const response = await fetch('http://localhost:4000/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        email, 
+                        password, 
+                        ip_cliente: '192.168.1.1' // Podrías obtenerla del navegador o dejar q el backend la resuelva
+                    })
+                });
+
+                const data = await response.json();
+
+                if(!response.ok) {
+                    throw new Error(data.error || 'Ocurrió un error al iniciar sesión.');
+                }
+
+                // Autenticación exitosa
+                showAlert(data.mensaje, 'success');
+                
+                // GUARDAR TOKEN (Para que lo uses luego y mantengas la sesión)
+                localStorage.setItem('auth_token', data.token_acceso);
+                localStorage.setItem('user_role', data.usuario.rol);
+                localStorage.setItem('user_kyc', data.usuario.estado_kyc);
+
+                // Redirigir al dashboard en 2 segundos
+                setTimeout(() => {
+                    if (data.usuario.estado_kyc === 'pendiente') {
+                        window.location.href = 'kyc-verification.html'; 
+                    } else {
+                        window.location.href = 'dashboard.html';
+                    }
+                }, 2000);
+
+            } catch (error) {
+                showAlert(error.message, 'error');
+            } finally {
+                // UI restoration
+                submitBtn.innerHTML = 'Iniciar Sesión';
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-70');
+            }
+        });
+    </script>
+</body>
+</html>

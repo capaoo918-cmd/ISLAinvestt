@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>IslaInvest | Caribbean PropTech Investment</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-highest": "#e1e3e3",
+                        "outline-variant": "#bfc8ca",
+                        "secondary-container": "#fed65b",
+                        "on-background": "#191c1d",
+                        "tertiary-container": "#004e33",
+                        "background": "#f8fafa",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#002113",
+                        "surface-dim": "#d8dada",
+                        "on-surface-variant": "#40484a",
+                        "tertiary": "#003522",
+                        "secondary-fixed": "#ffe088",
+                        "secondary-fixed-dim": "#e9c349",
+                        "primary": "#00333c",
+                        "surface-container-high": "#e6e8e8",
+                        "on-secondary-fixed-variant": "#574500",
+                        "on-primary-fixed-variant": "#064e5a",
+                        "on-secondary-fixed": "#241a00",
+                        "primary-fixed": "#b2ecfa",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#f8fafa",
+                        "tertiary-fixed": "#8bf8c3",
+                        "secondary": "#735c00",
+                        "on-surface": "#191c1d",
+                        "on-secondary": "#ffffff",
+                        "surface": "#f8fafa",
+                        "surface-container-low": "#f2f4f4",
+                        "on-primary-fixed": "#001f25",
+                        "inverse-primary": "#96d0de",
+                        "surface-tint": "#2a6673",
+                        "inverse-on-surface": "#eff1f1",
+                        "on-primary-container": "#81bac8",
+                        "surface-container": "#eceeee",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#6fdba8",
+                        "primary-container": "#004b57",
+                        "on-tertiary-container": "#58c493",
+                        "on-primary": "#ffffff",
+                        "outline": "#70787b",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#96d0de",
+                        "surface-variant": "#e1e3e3",
+                        "on-secondary-container": "#745c00",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "inverse-surface": "#2e3131"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background: rgba(248, 250, 250, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(0, 51, 60, 0.9) 0%, rgba(0, 75, 87, 0.7) 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface pt-20">
+    <!-- Top Navigation Bar -->
+    <header class="fixed top-0 z-50 w-full glass-nav border-b border-outline-variant/20">
+        <div class="max-w-7xl mx-auto px-8 flex justify-between items-center h-20">
+            <div class="text-2xl font-bold tracking-tight text-primary font-headline">IslaInvest</div>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a class="text-primary font-bold border-b-2 border-primary pb-1" href="index.html">Marketplace</a>
+                <a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="auditor.html">ROI Auditor</a>
+                <a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="dashboard.html">Dashboard</a>
+                <a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="resources.html">Resources</a>
+            </nav>
+            <div class="flex items-center space-x-6">
+                <button class="bg-primary text-on-primary px-5 py-2 rounded-sm font-bold text-sm tracking-wide hover:opacity-90 transition-all active:scale-[0.99]">
+                    AI Finder
+                </button>
+                <span class="material-symbols-outlined text-primary cursor-pointer text-3xl" data-icon="account_circle">account_circle</span>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-[90vh] flex items-center">
+            <div class="absolute inset-0 z-0 overflow-hidden">
+                <img alt="Punta Cana Luxury Villa" class="w-full h-full object-cover" data-alt="Luxury architectural villa with infinity pool in Punta Cana" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFZXiGXWmFKjiuZj7e7VnRu0hsEEbEYj3zbtxNiq-Anq-YpuzAd1Z94jzHGJusSumme4GbQccCtFdvh6cHbNtPpyP17MgZyqBUcWTokSwGUxfAGHjh-285kJq-Y940l5JIQDTLh-ZiU0l_8Q-tDk9KSSeeMQJBwvHDRWeThDpj5LJX3FDMNObpBEcnasQdfRzBFwyhsiDL1Ap2v94d_lfQ-kqtieWF9A1Pc8IiBY_8kZFNmrYT-yBLcD-G8PXfZK5fjb8kv6obBpgr"/>
+                <div class="absolute inset-0 hero-gradient"></div>
+            </div>
+            <div class="relative z-10 max-w-7xl mx-auto px-8 lg:px-16 w-full">
+                <div class="max-w-3xl">
+                    <h1 class="font-headline text-5xl md:text-7xl font-extrabold text-on-primary leading-[1.1] mb-6 tracking-tight">
+                        Secure Your Yield in the <span class="text-secondary-fixed">Caribbean's Economic Leader.</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-on-primary/90 font-light mb-10 max-w-2xl leading-relaxed">
+                        8%-12% Net ROI backed by institutional transparency and world-class tax incentives.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-primary-fixed text-on-primary-fixed px-10 py-4 rounded-sm font-bold text-lg hover:bg-primary-fixed-dim transition-all">
+                            Explore Properties
+                        </button>
+                        <button class="bg-secondary-fixed text-on-secondary-fixed px-10 py-4 rounded-sm font-bold text-lg hover:bg-secondary-fixed-dim transition-all" onclick="window.location.href='auditor.html'">
+                            Calculate ROI
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Marketplace Preview Section (Added for Marketplace Tab context) -->
+        <section class="py-24 bg-surface-container-low">
+            <div class="max-w-7xl mx-auto px-8 lg:px-16">
+                <div class="flex justify-between items-end mb-16">
+                    <div>
+                        <span class="text-secondary font-bold tracking-widest uppercase text-sm">Targeted Investments</span>
+                        <h2 class="font-headline text-4xl md:text-5xl font-bold text-primary mt-2">Curated Marketplace</h2>
+                    </div>
+                    <button class="text-primary font-bold hover:underline flex items-center gap-1">
+                        View All <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Property Card 1 -->
+                    <div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 hover:shadow-lg transition-all cursor-pointer group">
+                        <div class="h-64 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Villa Azul">
+                            <div class="absolute top-4 right-4 bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-sm text-xs font-bold uppercase tracking-wider">Pre-Construction</div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-headline text-xl font-bold text-primary">Villa Azul Residence</h3>
+                                <span class="text-tertiary font-bold">$420,000</span>
+                            </div>
+                            <p class="text-on-surface-variant text-sm flex items-center gap-1 mb-4">
+                                <span class="material-symbols-outlined text-sm">location_on</span> Cap Cana, DR
+                            </p>
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div>
+                                    <span class="text-xs text-on-surface-variant block">Proj. ROI</span>
+                                    <span class="font-bold text-tertiary">10.5% net</span>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-on-surface-variant block">Delivery</span>
+                                    <span class="font-bold text-primary">Q4 2025</span>
+                                </div>
+                            </div>
+                            <button class="w-full py-3 border border-primary text-primary font-bold rounded-sm hover:bg-primary/5 transition-colors">View Financials</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Property Card 2 -->
+                    <div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 hover:shadow-lg transition-all cursor-pointer group">
+                        <div class="h-64 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Vista del Mar">
+                            <div class="absolute top-4 right-4 bg-surface-container-highest text-on-surface px-3 py-1 rounded-sm text-xs font-bold uppercase tracking-wider">Ready to Move</div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-headline text-xl font-bold text-primary">Vista del Mar Condo</h3>
+                                <span class="text-tertiary font-bold">$285,000</span>
+                            </div>
+                            <p class="text-on-surface-variant text-sm flex items-center gap-1 mb-4">
+                                <span class="material-symbols-outlined text-sm">location_on</span> Punta Cana, DR
+                            </p>
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div>
+                                    <span class="text-xs text-on-surface-variant block">Hist. ROI</span>
+                                    <span class="font-bold text-tertiary">9.2% net</span>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-on-surface-variant block">Occupancy</span>
+                                    <span class="font-bold text-primary">82%</span>
+                                </div>
+                            </div>
+                            <button class="w-full py-3 border border-primary text-primary font-bold rounded-sm hover:bg-primary/5 transition-colors">View Financials</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Property Card 3 -->
+                    <div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 hover:shadow-lg transition-all cursor-pointer group">
+                        <div class="h-64 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Eco Lofts">
+                            <div class="absolute top-4 right-4 bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-sm text-xs font-bold uppercase tracking-wider">Pre-Construction</div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-headline text-xl font-bold text-primary">Tulum Eco Lofts</h3>
+                                <span class="text-tertiary font-bold">$195,000</span>
+                            </div>
+                            <p class="text-on-surface-variant text-sm flex items-center gap-1 mb-4">
+                                <span class="material-symbols-outlined text-sm">location_on</span> Las Terrenas, DR
+                            </p>
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div>
+                                    <span class="text-xs text-on-surface-variant block">Proj. ROI</span>
+                                    <span class="font-bold text-tertiary">12.1% net</span>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-on-surface-variant block">Delivery</span>
+                                    <span class="font-bold text-primary">Q1 2026</span>
+                                </div>
+                            </div>
+                            <button class="w-full py-3 border border-primary text-primary font-bold rounded-sm hover:bg-primary/5 transition-colors">View Financials</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Macroeconomic Foundations -->
+        <section class="py-24 bg-surface">
+            <!-- (Content from the prompt) -->
+            <div class="max-w-7xl mx-auto px-8 lg:px-16">
+                <!-- Data Visualization Card etc. -->
+                <div class="mb-16">
+                    <span class="text-secondary font-bold tracking-widest uppercase text-sm">Economic Foundations</span>
+                    <h2 class="font-headline text-4xl md:text-5xl font-bold text-primary mt-2">The Engine of Growth</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                    <!-- Data Visualization Card -->
+                    <div class="md:col-span-8 bg-surface-container-lowest p-10 rounded-xl shadow-sm border border-outline-variant/10">
+                        <div class="flex justify-between items-end mb-8">
+                            <div>
+                                <h3 class="text-3xl font-bold text-primary">5% GDP Growth</h3>
+                                <p class="text-on-surface-variant">Consistent regional leadership outperforming LATAM averages.</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-tertiary font-bold text-4xl">US$13B</span>
+                                <p class="text-xs uppercase tracking-widest text-on-surface-variant">Central Bank Reserves</p>
+                            </div>
+                        </div>
+                        <!-- Simple Infographic Element -->
+                        <div class="flex items-end gap-2 h-48">
+                            <div class="flex-1 bg-surface-container-highest rounded-t-sm h-[30%]"></div>
+                            <div class="flex-1 bg-surface-container-highest rounded-t-sm h-[45%]"></div>
+                            <div class="flex-1 bg-surface-container-highest rounded-t-sm h-[40%]"></div>
+                            <div class="flex-1 bg-surface-container-highest rounded-t-sm h-[60%]"></div>
+                            <div class="flex-1 bg-tertiary-container rounded-t-sm h-[85%] relative">
+                                <div class="absolute -top-8 left-1/2 -translate-x-1/2 text-tertiary font-bold">+5.1%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Map/Location Card -->
+                    <div class="md:col-span-4 bg-primary text-on-primary p-10 rounded-xl relative overflow-hidden">
+                        <div class="relative z-10 h-full flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2">Strategic Hub</h3>
+                                <p class="text-on-primary/70 text-sm">Direct access to major global markets from the heart of the Caribbean.</p>
+                            </div>
+                            <div class="mt-8">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+                                    <span class="font-medium tracking-wide">Punta Cana, DR</span>
+                                </div>
+                                <div class="h-40 w-full rounded bg-on-primary/10 flex items-center justify-center">
+                                    <img alt="Caribbean Map" class="opacity-40 grayscale mix-blend-overlay w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ4O1KPLXURzXltwpAFwCo-7y02uVm-B76EyDHlRUC1Lx2zIeGi85obDDhXF9EfGRAAf9XNbfZcu434VA6lecqnMSYJHHZx1clqs19WGclZdOTW-WJup_yigLkrOcz7WhlLMNjnXjd5Mvp1HYJoZUql6CvnNgsLrL6p8qViccFNmrcl8KI5xhvr4vC17gSFxbL1Q2ouunyBGNfFO3Fj2mjcojRR8fSJyy5axBCkZod1kTvrOjhospHp8mcMT4IExOkOcX1_DKb3_Qz"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="py-32 bg-surface text-center">
+            <h2 class="font-headline text-5xl font-bold text-primary mb-8">Ready to secure your piece of paradise?</h2>
+            <button class="bg-primary text-on-primary px-12 py-5 rounded-sm font-bold text-xl hover:opacity-90 transition-all shadow-xl shadow-primary/10" onclick="window.location.href='dashboard.html'">
+                Go to Dashboard
+            </button>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-container-low mt-20">
+        <div class="max-w-7xl mx-auto px-16 py-12 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-8 md:mb-0">
+                <div class="text-lg font-black text-primary opacity-50 mb-4">IslaInvest</div>
+                <p class="text-xs font-light text-on-surface-variant max-w-xs text-center md:text-left">
+                    © 2024 IslaInvest. Regulated by DGII. Partners: CONFOTUR, Trust-Shield.
+                </p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-8">
+                <a class="text-xs font-light text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+                <a class="text-xs font-light text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bottom Navigation (Mobile Only) -->
+    <nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-lg shadow-[0_-4px_20px_rgba(0,51,60,0.04)] rounded-t-2xl">
+        <div class="flex justify-around items-center w-full py-3 px-6">
+            <a href="index.html" class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-xl px-3 py-1">
+                <span class="material-symbols-outlined text-2xl" data-icon="analytics">analytics</span>
+                <span class="text-[10px] font-medium uppercase tracking-widest mt-1">Market</span>
+            </a>
+            <a href="auditor.html" class="flex flex-col items-center justify-center text-on-surface-variant">
+                <span class="material-symbols-outlined text-2xl" data-icon="calculate">calculate</span>
+                <span class="text-[10px] font-medium uppercase tracking-widest mt-1">Auditor</span>
+            </a>
+            <a href="dashboard.html" class="flex flex-col items-center justify-center text-on-surface-variant">
+                <span class="material-symbols-outlined text-2xl" data-icon="dashboard">dashboard</span>
+                <span class="text-[10px] font-medium uppercase tracking-widest mt-1">Dash</span>
+            </a>
+        </div>
+    </nav>
+    <!-- AI Chatbot Widget (Alfred Fernandez) -->
+    <div id="chatbotIcon" onclick="toggleChat()" class="fixed bottom-6 right-6 w-16 h-16 bg-primary text-on-primary rounded-full flex justify-center items-center shadow-2xl cursor-pointer hover:scale-110 hover:shadow-primary/50 transition-all z-[90]">
+        <span class="material-symbols-outlined text-[32px]">support_agent</span>
+        <!-- Notificación Badge -->
+        <span class="absolute top-0 right-0 w-4 h-4 bg-error rounded-full border-2 border-surface animate-pulse"></span>
+    </div>
+
+    <div id="chatbotPanel" class="fixed bottom-24 right-6 w-80 md:w-96 bg-surface-container-lowest rounded-2xl shadow-2xl border border-outline-variant/30 hidden flex-col overflow-hidden z-[100] transform transition-transform duration-300 scale-95 origin-bottom-right">
+        <!-- Header -->
+        <div class="bg-primary p-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-secondary-fixed rounded-full flex justify-center items-center overflow-hidden border-2 border-primary">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=150" alt="Alfred" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h4 class="font-bold text-on-primary text-sm leading-tight">Alfred Fernandez</h4>
+                    <span class="text-[10px] text-secondary-fixed font-medium uppercase tracking-widest flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 bg-success rounded-full block"></span> En Línea
+                    </span>
+                </div>
+            </div>
+            <span onclick="toggleChat()" class="material-symbols-outlined text-on-primary cursor-pointer hover:text-error transition-colors">close</span>
+        </div>
+
+        <!-- Chat Area -->
+        <div id="chatMessages" class="h-80 overflow-y-auto p-4 flex flex-col gap-4 text-sm bg-surface/50">
+            <!-- Mensaje Inicial de la Nube -->
+            <div class="flex items-start gap-2 max-w-[85%]">
+                <div class="bg-[#e9f2eb] border border-tertiary/10 text-on-surface p-3 rounded-2xl rounded-tl-sm shadow-sm leading-relaxed">
+                    👋 Hola, soy Alfred Fernandez. Noté que estás explorando IslaInvest. ¿Deseas ser perfilado como <b>Comprador General</b> para uso personal o como <b>Inversionista</b> para yields de alto retorno?
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="p-3 border-t border-outline-variant/20 bg-surface-container-lowest flex items-center gap-2">
+            <input type="text" id="chatInput" placeholder="Escribe tu respuesta..." class="w-full bg-surface-container-low border-none rounded-full px-4 py-2.5 text-sm text-primary focus:outline-none focus:ring-1 focus:ring-primary shadow-inner">
+            <button onclick="enviarMensajeAI()" class="bg-primary text-on-primary w-10 h-10 rounded-full flex justify-center items-center hover:bg-tertiary transition-colors shadow-md">
+                <span class="material-symbols-outlined text-[18px]">send</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Script del Chatbot AI -->
+    <script>
+        let isChatOpen = false;
+        let localLeadId = localStorage.getItem('isla_lead_id') || null; // Identificador CRM
+
+        function toggleChat() {
+            const panel = document.getElementById('chatbotPanel');
+            isChatOpen = !isChatOpen;
+            if(isChatOpen) {
+                panel.classList.remove('hidden');
+                setTimeout(() => { panel.classList.replace('scale-95', 'scale-100'); }, 10);
+            } else {
+                panel.classList.replace('scale-100', 'scale-95');
+                setTimeout(() => { panel.classList.add('hidden'); }, 300);
+            }
+        }
+
+        async function enviarMensajeAI() {
+            const input = document.getElementById('chatInput');
+            const mensaje = input.value.trim();
+            if (!mensaje) return;
+
+            // 1. Mostrar Mensaje del Usuario
+            appendMessage('user', mensaje);
+            input.value = '';
+
+            // Mostrar estado "Escribiendo..."
+            const typingId = appendTyping();
+
+            try {
+                // 2. Conectar a nuestra API CRM de Inteligencia Artificial (Alfred Fernandez)
+                const response = await fetch('http://localhost:4000/api/bot/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        mensaje_usuario: mensaje,
+                        lead_id_local: localLeadId,
+                        nombre_usuario: 'Visitante Web'
+                    })
+                });
+
+                const data = await response.json();
+                
+                // Guardamos el Lead ID en el LocalStorage para mantener el hilo
+                if(data.lead_id && !localLeadId) {
+                    localLeadId = data.lead_id;
+                    localStorage.setItem('isla_lead_id', localLeadId);
+                }
+
+                // 3. Remover "Escribiendo..." y Mostrar Respuesta
+                removeTyping(typingId);
+                appendMessage('alfred', data.respuesta);
+
+            } catch(e) {
+                removeTyping(typingId);
+                appendMessage('alfred', "Tengo problemas de conexión con el CRM. Te pido me envíes un WhatsApp usando el botón flotante.");
+            }
+        }
+
+        function appendMessage(sender, text) {
+            const chatBody = document.getElementById('chatMessages');
+            const div = document.createElement('div');
+            
+            if(sender === 'user') {
+                div.className = "flex justify-end gap-2 max-w-[85%] self-end animate-fade-in";
+                div.innerHTML = `<div class="bg-primary text-on-primary p-3 rounded-2xl rounded-tr-sm shadow-sm leading-relaxed">${text}</div>`;
+            } else {
+                div.className = "flex items-start gap-2 max-w-[85%] self-start animate-fade-in";
+                div.innerHTML = `<div class="bg-[#e9f2eb] border border-tertiary/10 text-on-surface p-3 rounded-2xl rounded-tl-sm shadow-sm leading-relaxed">${text}</div>`;
+            }
+
+            chatBody.appendChild(div);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function appendTyping() {
+            const chatBody = document.getElementById('chatMessages');
+            const id = 'typing_' + Date.now();
+            const div = document.createElement('div');
+            div.id = id;
+            div.className = "flex items-start gap-2 max-w-[85%] self-start animate-fade-in";
+            div.innerHTML = `
+                <div class="bg-surface-container-low border border-outline-variant/10 p-3 rounded-2xl rounded-tl-sm shadow-sm flex gap-1 items-center">
+                    <span class="w-2 h-2 bg-on-surface-variant/50 rounded-full animate-bounce"></span>
+                    <span class="w-2 h-2 bg-on-surface-variant/50 rounded-full animate-bounce" style="animation-delay: 0.2s"></span>
+                    <span class="w-2 h-2 bg-on-surface-variant/50 rounded-full animate-bounce" style="animation-delay: 0.4s"></span>
+                </div>
+            `;
+            chatBody.appendChild(div);
+            chatBody.scrollTop = chatBody.scrollHeight;
+            return id;
+        }
+
+        function removeTyping(id) {
+            const el = document.getElementById(id);
+            if(el) el.remove();
+        }
+
+        // Enviar con tecla ENTER
+        document.getElementById('chatInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') enviarMensajeAI();
+        });
+    </script>
+</body>
+</html>

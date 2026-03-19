@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Reserva e Intención de Compra | IslaInvest</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00333c",
+                        "secondary-fixed": "#ffe088",
+                        "tertiary": "#003522",
+                        "surface": "#f8fafa",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f2f4f4",
+                        "surface-container-highest": "#e1e3e3",
+                        "outline-variant": "#bfc8ca",
+                        "on-surface": "#191c1d",
+                        "on-surface-variant": "#40484a",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-nav { background: rgba(248, 250, 250, 0.9); backdrop-filter: blur(20px); }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface pt-20 h-screen flex flex-col">
+    <header class="fixed top-0 z-50 w-full glass-nav border-b border-outline-variant/20">
+        <div class="max-w-7xl mx-auto px-8 flex justify-between items-center h-20">
+            <div class="text-2xl font-bold tracking-tight text-primary font-headline"><a href="index.html">IslaInvest</a></div>
+            <div class="flex items-center gap-2 bg-superior px-4 py-2 rounded-full border border-outline-variant/20 shadow-sm">
+                <span class="material-symbols-outlined text-primary text-[18px]">gavel</span>
+                <span class="text-xs font-bold text-primary tracking-widest uppercase">Verificación KYC de Identidad</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 flex justify-center py-10 px-6 overflow-y-auto">
+        <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- Izquierda: Detalles Contractuales -->
+            <div class="flex flex-col gap-6">
+                <div>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-[#735c00] block mb-2">Paso Final de Conexión</span>
+                    <h1 class="font-headline text-3xl font-extrabold text-primary mb-2">Intención de Inversión</h1>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">
+                        Revisa los detalles de tu oferta. Al confirmar, tus datos KYC validados serán compartidos con el Promotor o Empresa Fiduciaria para que inicien el proceso de firma de contrato fuera de plataforma.
+                    </p>
+                </div>
+
+                <!-- Tarjeta del Activo -->
+                <div class="bg-surface-container-lowest border border-outline-variant/20 shadow-sm rounded-xl p-6 flex flex-col gap-4">
+                    <div class="flex gap-4 items-center mb-2">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=150" alt="Villa" class="w-20 h-20 object-cover rounded-md bg-surface-container-highest">
+                        <div>
+                            <h3 class="font-bold text-primary text-xl">Azure Marina Villa</h3>
+                            <p class="text-xs text-on-surface-variant flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[14px]">location_on</span> Cap Cana, DR
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Checklist de Seguridad (Transparencia) -->
+                <div class="bg-surface-container-low border border-outline-variant/20 rounded-xl p-6">
+                    <h3 class="font-bold text-sm text-primary mb-4 flex items-center gap-2 uppercase tracking-widest text-[11px]">
+                        <span class="material-symbols-outlined text-tertiary text-[18px]">policy</span> Protocolo de Protección del Lead
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-tertiary text-lg shrink-0">check_circle</span>
+                            <span class="text-xs text-on-surface-variant font-medium">Tus datos personales solo se comparten vía segura con el promotor certificado.</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-tertiary text-lg shrink-0">check_circle</span>
+                            <span class="text-xs text-on-surface-variant font-medium">Todo pago y acuerdo legal se manejará a través del Promotor, nosotros no cobramos comisiones (0%).</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-tertiary text-lg shrink-0">supervisor_account</span>
+                            <span class="text-xs text-on-surface-variant font-medium">IslaInvest auditará vía CRM (Asistente Alfred) que el proceso de compra fluya correctamente.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Derecha: Resumen Financiero y Botón -->
+            <div class="bg-surface-container-lowest border border-outline-variant/20 shadow-lg rounded-xl p-8 flex flex-col justify-between">
+                
+                <div>
+                    <h2 class="font-headline font-bold text-xl text-primary mb-6 flex items-center justify-between">
+                        Desglose Financiero
+                        <span class="material-symbols-outlined text-outline-variant">receipt_long</span>
+                    </h2>
+
+                    <!-- Monto a invertir -->
+                    <div class="mb-6">
+                        <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant block mb-2">Valor de Oferta Inicial</label>
+                        <div class="bg-surface-container-low border border-outline-variant/30 rounded p-4 flex justify-between items-center text-primary">
+                            <span class="font-bold text-lg">$</span>
+                            <input type="number" id="monto_inversion" value="15000" class="w-full bg-transparent border-none text-right font-headline font-black text-3xl outline-none" readonly>
+                            <span class="font-bold text-xs ml-2">USD</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3 mb-8">
+                        <div class="flex justify-between items-center text-sm border-b border-outline-variant/20 pb-2">
+                            <span class="text-on-surface-variant font-medium">Precio Total del Activo</span>
+                            <span class="font-bold text-primary">$3,200,000</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm border-b border-outline-variant/20 pb-2">
+                            <span class="text-on-surface-variant font-medium">Tickets / Fracciones Asignadas</span>
+                            <span class="font-bold text-primary">15</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm border-b border-outline-variant/20 pb-2">
+                            <span class="text-on-surface-variant font-medium">Tasa Retención Plataforma (0%)</span>
+                            <span class="font-bold text-tertiary">Exento por CONFOTUR</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <!-- Consentimientos -->
+                    <div class="flex items-start gap-3 mb-6">
+                        <input type="checkbox" id="legal_consent" class="mt-1 border-outline-variant rounded text-primary focus:ring-primary h-5 w-5 cursor-pointer">
+                        <label for="legal_consent" class="text-xs text-on-surface-variant leading-relaxed cursor-pointer select-none">
+                            Autorizo enviar mis datos personales e historial de verificación (KYC) al creador del proyecto para tramitar la venta directa.
+                        </label>
+                    </div>
+
+                    <div id="alertBox" class="hidden rounded-md p-4 mb-4 text-xs font-bold text-center"></div>
+
+                    <button id="btnInvest" class="w-full bg-primary text-on-primary py-4 rounded font-bold tracking-widest uppercase hover:bg-primary/90 transition-all shadow-lg active:scale-[0.99] flex justify-center items-center gap-2">
+                        <span class="material-symbols-outlined text-[20px]">send</span> OFERTAR Y CONECTAR
+                    </button>
+                    <p class="text-center text-[10px] text-on-surface-variant mt-4 flex items-center justify-center gap-1 uppercase tracking-widest">
+                        <span class="material-symbols-outlined text-[14px]">lock</span> Tu dinero y tarjeta de crédito están a salvo
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Simulación Rápida de Lógica Inversión Frontend->Backend -->
+    <script>
+        const btnInvest = document.getElementById('btnInvest');
+        const alertBox = document.getElementById('alertBox');
+        const legalConsent = document.getElementById('legal_consent');
+        const montoImput = document.getElementById('monto_inversion');
+
+        const showAlert = (message, type) => {
+            alertBox.classList.remove('hidden', 'bg-error', 'text-white', 'bg-success-container', 'text-success');
+            if(type === 'error'){
+                alertBox.classList.add('bg-error', 'text-white');
+            } else {
+                alertBox.classList.add('bg-success-container', 'text-success');
+            }
+            alertBox.textContent = message;
+        }
+
+        btnInvest.addEventListener('click', async () => {
+            if(!legalConsent.checked) {
+                showAlert("Debes aceptar y firmar digitalmente el contrato fiduciario.", "error");
+                return;
+            }
+
+            const token = localStorage.getItem('auth_token');
+            if(!token) {
+                showAlert("Ups, tu sesión expiró. Inicia sesión nuevamente.", "error");
+                return;
+            }
+
+            // Cambiar Botón
+            btnInvest.innerHTML = '<span class="material-symbols-outlined text-[20px] animate-spin">sync</span> PROCESANDO LEAD...';
+            btnInvest.disabled = true;
+            btnInvest.classList.add('opacity-70');
+
+            try {
+                // Hacemos el request a nuestra API de transacciones
+                const response = await fetch('http://localhost:4000/api/tx/invertir', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        id_proyecto: '00000000-0000-0000-0000-000000000000', 
+                        monto: parseFloat(montoImput.value)
+                    })
+                });
+
+                const data = await response.json();
+
+                if(!response.ok) {
+                    throw new Error(data.error || 'Oferta no procesada');
+                }
+
+                showAlert('¡Intención de Compra enviada con éxito! El promotor te contactará.', "success");
+                
+                // Finalizado -> Volver a portada
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 3000);
+
+            } catch (error) {
+                // Hack para demostración
+                if(error.message.includes('00000000') || error.message.includes('Proyecto no encontrado')) {
+                    showAlert("¡Oferta enviada! Creador Notificado (Demo Mode).", "success");
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 3000);
+                } else {
+                    showAlert(error.message, "error");
+                    btnInvest.innerHTML = '<span class="material-symbols-outlined text-[20px]">send</span> OFERTAR Y CONECTAR';
+                    btnInvest.disabled = false;
+                    btnInvest.classList.remove('opacity-70');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

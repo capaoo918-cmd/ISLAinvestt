@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>God Mode | Super Admin IslaInvest</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0f172a", // Dark slate for admin feel
+                        "secondary-fixed": "#38bdf8", // Sky blue highlights
+                        "tertiary": "#10b981", // Emerald success
+                        "surface": "#f8fafc",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f1f5f9",
+                        "surface-container-highest": "#e2e8f0",
+                        "outline-variant": "#cbd5e1",
+                        "on-surface": "#0f172a",
+                        "on-surface-variant": "#475569",
+                        "on-primary": "#ffffff",
+                        "error": "#ef4444",
+                        "warning": "#f59e0b"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"]
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        ::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body class="bg-surface font-body text-on-surface flex flex-col h-screen overflow-hidden">
+
+    <!-- Header Admin -->
+    <header
+        class="h-16 bg-primary text-on-primary flex justify-between items-center px-6 shrink-0 relative z-30 shadow-md">
+        <div class="flex items-center gap-4">
+            <span class="material-symbols-outlined text-secondary-fixed text-[28px]">admin_panel_settings</span>
+            <h1 class="font-headline text-xl font-bold tracking-tight">System Control (God Mode)</h1>
+            <span
+                class="bg-error text-white text-[10px] px-2 py-0.5 rounded uppercase tracking-widest font-bold ml-2 animate-pulse">Live</span>
+        </div>
+        <div class="flex items-center gap-6">
+            <a href="index.html"
+                class="text-xs text-secondary-fixed hover:text-white transition-colors flex items-center gap-1 font-bold">
+                <span class="material-symbols-outlined text-[16px]">logout</span> Volver al Portal
+            </a>
+        </div>
+    </header>
+
+    <div class="flex flex-1 overflow-hidden">
+        <!-- Sidebar Navigation -->
+        <aside
+            class="w-64 bg-surface-container-lowest border-r border-outline-variant flex flex-col hidden md:flex shrink-0">
+            <nav class="p-4 space-y-1 text-sm font-medium">
+                <p class="px-2 text-[10px] text-on-surface-variant uppercase tracking-widest font-bold mb-3 mt-2">
+                    Privilegios Globales</p>
+                <button onclick="switchTab('tab-users', this)"
+                    class="nav-btn w-full text-left flex items-center gap-3 px-3 py-2.5 rounded bg-primary/10 text-primary font-bold transition-all">
+                    <span class="material-symbols-outlined text-[20px]">how_to_reg</span> Control de KYC (AML)
+                </button>
+                <button onclick="switchTab('tab-projects', this)"
+                    class="nav-btn w-full text-left flex items-center gap-3 px-3 py-2.5 rounded text-on-surface-variant hover:bg-surface-container-low transition-all">
+                    <span class="material-symbols-outlined text-[20px]">domain</span> Auditoría Fideicomisos
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 overflow-y-auto p-8 bg-surface relative">
+
+            <!-- Global Loader -->
+            <div id="loader"
+                class="absolute inset-0 bg-surface/80 backdrop-blur-sm z-50 flex justify-center items-center">
+                <div class="flex flex-col items-center gap-3">
+                    <span class="material-symbols-outlined text-4xl text-primary animate-spin">autorenew</span>
+                    <span class="text-xs font-bold text-primary uppercase tracking-widest">Sincronizando con Base de
+                        Datos...</span>
+                </div>
+            </div>
+
+            <!-- TAB 1: KYC / USUARIOS -->
+            <section id="tab-users" class="animate-fade-in block">
+                <h2 class="text-xl font-bold text-primary mb-1">Gestión Anti-Lavado de Dinero (AML / KYC)</h2>
+                <p class="text-xs text-on-surface-variant mb-6">Audita usuarios, aprueba cuentas de promotores o bloquea
+                    accesos sospechosos.</p>
+
+                <div
+                    class="bg-surface-container-lowest border border-outline-variant/50 rounded-lg shadow-sm overflow-hidden">
+                    <table class="w-full text-left">
+                        <thead
+                            class="bg-surface-container-low text-[10px] uppercase tracking-widest text-on-surface-variant border-b border-outline-variant/50">
+                            <tr>
+                                <th class="p-4 font-bold">Usuario / Email</th>
+                                <th class="p-4 font-bold">Rol</th>
+                                <th class="p-4 font-bold">IP Acceso</th>
+                                <th class="p-4 font-bold text-center">Estado KYC</th>
+                                <th class="p-4 font-bold text-center">Acción Root</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersList" class="text-sm">
+                            <!-- JS Injection -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- TAB 2: PROYECTOS / FIDEICOMISOS -->
+            <section id="tab-projects" class="animate-fade-in hidden">
+                <h2 class="text-xl font-bold text-primary mb-1">Auditoría de Desarrollo (Escrow Legal)</h2>
+                <p class="text-xs text-on-surface-variant mb-6">Da de alta fideicomisos. Si marcas un proyecto como
+                    "Congelado por Fraude", la bóveda reembolsará el dinero automáticamente de noche.</p>
+
+                <div
+                    class="bg-surface-container-lowest border border-outline-variant/50 rounded-lg shadow-sm overflow-hidden">
+                    <table class="w-full text-left">
+                        <thead
+                            class="bg-surface-container-low text-[10px] uppercase tracking-widest text-on-surface-variant border-b border-outline-variant/50">
+                            <tr>
+                                <th class="p-4 font-bold">Fideicomiso / Nombre</th>
+                                <th class="p-4 font-bold text-right">Meta (USD)</th>
+                                <th class="p-4 font-bold">Promotor</th>
+                                <th class="p-4 font-bold text-center">Estatus Legal</th>
+                                <th class="p-4 font-bold text-center">Dictamen Final</th>
+                            </tr>
+                        </thead>
+                        <tbody id="projectsList" class="text-sm">
+                            <!-- JS Injection -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+    </div>
+    </div>
+
+    <!-- Script de Super Admin -->
+    <script>
+        const API_SUPER = 'http://localhost:4000/api/super';
+
+        // HACK PARA PROTOTIPO: Como no todos los testers inician sesion como "admin",
+        // usaremos una cabecera simulada o ignoraremos el auth para dejarte probar el panel en local.
+        const token = localStorage.getItem('auth_token') || 'test-token';
+
+        const formatMoney = (m) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(parseFloat(m || 0));
+
+        function switchTab(tabId, btnElement) {
+            ['tab-users', 'tab-projects'].forEach(t => document.getElementById(t).classList.add('hidden'));
+            document.querySelectorAll('.nav-btn').forEach(b => {
+                b.classList.remove('bg-primary/10', 'text-primary', 'font-bold');
+                b.classList.add('text-on-surface-variant');
+            });
+
+            document.getElementById(tabId).classList.remove('hidden');
+            btnElement.classList.add('bg-primary/10', 'text-primary', 'font-bold');
+            btnElement.classList.remove('text-on-surface-variant');
+
+            if (tabId === 'tab-users') loadUsers();
+            if (tabId === 'tab-projects') loadProjects();
+        }
+
+        async function actionKyc(id, accion) {
+            const conf = confirm(`¿Estás seguro de que quieres ${accion.toUpperCase()} a este usuario?`);
+            if (!conf) return;
+
+            document.getElementById('loader').classList.remove('hidden');
+            try {
+                const res = await fetch(`${API_SUPER}/usuarios/kyc/${id}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+                    body: JSON.stringify({ accion })
+                });
+                const d = await res.json();
+                alert(d.mensaje || d.error);
+                loadUsers();
+            } catch (e) { alert("Error de red"); }
+        }
+
+        async function actionProject(id, nuevo_estado) {
+            const conf = confirm(`VAS A CAMBIAR EL STATUS LEGAL A: ${nuevo_estado.toUpperCase()}. ¿Proceder?`);
+            if (!conf) return;
+
+            document.getElementById('loader').classList.remove('hidden');
+            try {
+                const res = await fetch(`${API_SUPER}/proyectos/estado/${id}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+                    body: JSON.stringify({ nuevo_estado })
+                });
+                const d = await res.json();
+                alert(d.mensaje || d.error);
+                loadProjects();
+            } catch (e) { alert("Error de red"); }
+        }
+
+        async function loadUsers() {
+            document.getElementById('loader').classList.remove('hidden');
+            try {
+                const res = await fetch(`${API_SUPER}/usuarios`, { headers: { 'Authorization': `Bearer ${token}` } });
+                const data = await res.json();
+                const list = document.getElementById('usersList');
+                list.innerHTML = '';
+
+                data.usuarios.forEach(u => {
+                    const statusColor = u.estado_kyc === 'aprobado' ? 'text-tertiary bg-tertiary/10' :
+                        (u.estado_kyc === 'rechazado' ? 'text-error bg-error/10' : 'text-warning bg-warning/10');
+                    list.innerHTML += `
+                        <tr class="border-b border-outline-variant/10 hover:bg-surface-container-highest/20">
+                            <td class="p-4">
+                                <span class="font-bold text-primary block">${u.email}</span>
+                                <span class="text-[10px] text-on-surface-variant font-mono">ID: ${u.id_usuario.split('-')[0]}</span>
+                            </td>
+                            <td class="p-4 text-xs font-bold uppercase">${u.rol}</td>
+                            <td class="p-4 font-mono text-xs">${u.ultima_ip_acceso || 'Desconocida'}</td>
+                            <td class="p-4 text-center">
+                                <span class="px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider ${statusColor}">${u.estado_kyc}</span>
+                            </td>
+                            <td class="p-4 text-center flex justify-center gap-2">
+                                <button onclick="actionKyc('${u.id_usuario}', 'aprobar')" class="text-tertiary hover:bg-tertiary/10 p-1.5 rounded transition" title="Aprobar Legal"><span class="material-symbols-outlined text-[18px]">verified_user</span></button>
+                                <button onclick="actionKyc('${u.id_usuario}', 'rechazar')" class="text-error hover:bg-error/10 p-1.5 rounded transition" title="Rechazar AML Riesgo Alta"><span class="material-symbols-outlined text-[18px]">block</span></button>
+                            </td>
+                        </tr>
+                    `;
+                });
+            } catch (e) { console.error(e); } finally { document.getElementById('loader').classList.add('hidden'); }
+        }
+
+        async function loadProjects() {
+            document.getElementById('loader').classList.remove('hidden');
+            try {
+                const res = await fetch(`${API_SUPER}/proyectos`, { headers: { 'Authorization': `Bearer ${token}` } });
+                const data = await res.json();
+                const list = document.getElementById('projectsList');
+                list.innerHTML = '';
+
+                if (data.proyectos.length === 0) list.innerHTML = '<tr><td colspan="5" class="p-4 text-center">No hay proyectos.</td></tr>';
+
+                data.proyectos.forEach(p => {
+                    let sColor = 'bg-surface-container-highest/50 text-on-surface-variant';
+                    if (p.estado_proyecto === 'activo') sColor = 'bg-tertiary/20 text-tertiary';
+                    if (p.estado_proyecto === 'congelado_por_fraude') sColor = 'bg-error/20 text-error';
+
+                    list.innerHTML += `
+                        <tr class="border-b border-outline-variant/10 hover:bg-surface-container-highest/20">
+                            <td class="p-4 text-sm font-bold text-primary">${p.titulo}</td>
+                            <td class="p-4 font-mono font-medium text-primary text-right">${formatMoney(p.meta_financiera)}</td>
+                            <td class="p-4 text-xs">${p.email_promotor || 'N/A'}</td>
+                            <td class="p-4 text-center">
+                                <span class="px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider ${sColor}">${p.estado_proyecto.replace(/_/g, ' ')}</span>
+                            </td>
+                            <td class="p-4 text-center">
+                                <select onchange="actionProject('${p.id_proyecto}', this.value)" class="text-[10px] font-bold uppercase bg-surface-container border border-outline-variant/50 rounded px-2 py-1 text-primary focus:outline-none">
+                                    <option value="" disabled selected>Dictamen...</option>
+                                    <option value="activo">Aprobar (Activo)</option>
+                                    <option value="cancelado">Cancelar Proyecto</option>
+                                    <option value="congelado_por_fraude">! ALERTA FRAUDE</option>
+                                </select>
+                            </td>
+                        </tr>
+                    `;
+                });
+            } catch (e) { console.error(e); } finally { document.getElementById('loader').classList.add('hidden'); }
+        }
+
+        // INIT
+        window.addEventListener('DOMContentLoaded', loadUsers);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Crear Cuenta | IslaInvest</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00333c",
+                        "secondary-fixed": "#ffe088",
+                        "tertiary": "#003522",
+                        "surface": "#f8fafa",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f2f4f4",
+                        "surface-container-highest": "#e1e3e3",
+                        "outline-variant": "#bfc8ca",
+                        "on-surface": "#191c1d",
+                        "on-surface-variant": "#40484a",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-nav { background: rgba(248, 250, 250, 0.9); backdrop-filter: blur(20px); }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface h-screen flex flex-col pt-20">
+    <header class="fixed top-0 z-50 w-full glass-nav border-b border-outline-variant/20">
+        <div class="max-w-7xl mx-auto px-8 flex justify-between items-center h-20">
+            <div class="text-2xl font-bold tracking-tight text-primary font-headline"><a href="index.html">IslaInvest</a></div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a class="text-on-surface-variant font-medium hover:text-primary transition-colors" href="login.html">Ya tengo cuenta (Ingresar)</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 flex flex-col justify-center items-center px-6">
+        <div class="w-full max-w-md bg-surface-container-lowest p-8 border border-outline-variant/20 shadow-lg rounded-xl">
+            <div class="text-center mb-8">
+                <span class="material-symbols-outlined text-4xl text-primary mb-2">vpn_key</span>
+                <h1 class="font-headline text-2xl font-extrabold text-primary mb-2">Únete a IslaInvest</h1>
+                <p class="text-sm text-on-surface-variant">Accede a activos institucionales libres de impuestos bajo la ley CONFOTUR.</p>
+            </div>
+
+            <!-- Div de Mensajes de Error/Éxito -->
+            <div id="alertBox" class="hidden rounded-md p-4 mb-6 text-sm font-medium"></div>
+
+            <form id="registerForm" class="space-y-6">
+                <!-- Tipo de Perfil -->
+                <div>
+                    <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant block mb-2">Selecciona tu Rol</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label class="border-2 border-primary bg-primary/5 p-3 rounded flex items-center gap-2 cursor-pointer transition-colors" id="label-inversor">
+                            <input type="radio" name="rol" value="inversor" class="text-primary focus:ring-primary h-4 w-4" checked>
+                            <span class="font-bold text-xs text-primary">Inversor</span>
+                        </label>
+                        <label class="border-2 border-outline-variant/30 hover:border-primary/50 bg-white p-3 rounded flex items-center gap-2 cursor-pointer transition-colors" id="label-creador">
+                            <input type="radio" name="rol" value="creador" class="text-primary focus:ring-primary h-4 w-4">
+                            <span class="font-bold text-xs text-on-surface-variant">Creador</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Correo Electrónico -->
+                <div>
+                    <label for="email" class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant block mb-1">Correo Electrónico</label>
+                    <input type="email" id="email" required placeholder="inversor@ejemplo.com" class="w-full bg-surface-container-low border border-outline-variant/30 rounded p-3 text-sm text-primary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors">
+                </div>
+
+                <!-- Contraseña -->
+                <div>
+                    <label for="password" class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant block mb-1">Contraseña Segura</label>
+                    <input type="password" id="password" required placeholder="••••••••" minlength="8" class="w-full bg-surface-container-low border border-outline-variant/30 rounded p-3 text-sm text-primary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors">
+                    <p class="text-[10px] text-on-surface-variant mt-1.5">Mínimo 8 caracteres, idealmente combinando números y letras.</p>
+                </div>
+
+                <!-- Botón -->
+                <button type="submit" id="submitBtn" class="w-full bg-primary text-on-primary py-3.5 rounded font-bold tracking-wider hover:bg-primary/90 transition-all shadow-md active:scale-[0.99] flex justify-center items-center gap-2 text-sm uppercase">
+                    Crear mi Bóveda Escrow
+                </button>
+            </form>
+
+            <div class="mt-8 text-center border-t border-outline-variant/20 pt-6">
+                <p class="text-xs text-on-surface-variant">
+                    ¿Ya eres miembro? <a href="login.html" class="font-bold text-primary hover:underline">Inicia Sesión aquí</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-surface-container-low mt-auto border-t border-outline-variant/20">
+        <div class="max-w-7xl mx-auto px-8 py-6 text-center text-[10px] font-medium uppercase tracking-widest text-on-surface-variant">
+            © 2024 IslaInvest. Datos Seguros con Encriptación de 256 bits.
+        </div>
+    </footer>
+
+    <!-- LÓGICA DE JAVASCRIPT: Frontend -> Backend -->
+    <script>
+        // Manejo visual de los radios
+        const radios = document.querySelectorAll('input[name="rol"]');
+        const labelInversor = document.getElementById('label-inversor');
+        const labelCreador = document.getElementById('label-creador');
+
+        radios.forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                if(e.target.value === 'inversor') {
+                    labelInversor.className = "border-2 border-primary bg-primary/5 p-3 rounded flex items-center gap-2 cursor-pointer transition-colors";
+                    labelInversor.querySelector('span').classList.replace('text-on-surface-variant', 'text-primary');
+                    
+                    labelCreador.className = "border-2 border-outline-variant/30 hover:border-primary/50 bg-white p-3 rounded flex items-center gap-2 cursor-pointer transition-colors";
+                    labelCreador.querySelector('span').classList.replace('text-primary', 'text-on-surface-variant');
+                } else {
+                    labelCreador.className = "border-2 border-primary bg-primary/5 p-3 rounded flex items-center gap-2 cursor-pointer transition-colors";
+                    labelCreador.querySelector('span').classList.replace('text-on-surface-variant', 'text-primary');
+
+                    labelInversor.className = "border-2 border-outline-variant/30 hover:border-primary/50 bg-white p-3 rounded flex items-center gap-2 cursor-pointer transition-colors";
+                    labelInversor.querySelector('span').classList.replace('text-primary', 'text-on-surface-variant');
+                }
+            });
+        });
+
+        // Manejo del formulario
+        const registerForm = document.getElementById('registerForm');
+        const alertBox = document.getElementById('alertBox');
+        const submitBtn = document.getElementById('submitBtn');
+
+        const showAlert = (message, type) => {
+            alertBox.classList.remove('hidden', 'bg-error', 'text-white', 'bg-success-container', 'text-success');
+            if(type === 'error'){
+                alertBox.classList.add('bg-error', 'text-white');
+            } else {
+                alertBox.classList.add('bg-success-container', 'text-success');
+            }
+            alertBox.textContent = message;
+        }
+
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // UI feedback
+            submitBtn.textContent = 'PROCESANDO...';
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-70');
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const rol = document.querySelector('input[name="rol"]:checked').value;
+
+            try {
+                // LLAMADA AL BACKEND DE NODE.JS
+                const response = await fetch('http://localhost:4000/api/auth/registro', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password, rol })
+                });
+
+                const data = await response.json();
+
+                if(!response.ok) {
+                    throw new Error(data.error || 'Ocurrió un error al registrar.');
+                }
+
+                // Registro exitoso
+                showAlert(data.mensaje, 'success');
+                
+                // Redirigir al inicio de sesión o al KYC en 3 segundos
+                setTimeout(() => {
+                    window.location.href = 'kyc-verification.html'; 
+                }, 3000);
+
+            } catch (error) {
+                showAlert(error.message, 'error');
+            } finally {
+                // UI restoration
+                submitBtn.innerHTML = 'Crear mi Bóveda Escrow';
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-70');
+            }
+        });
+    </script>
+</body>
+</html>

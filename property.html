@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Property Details | IslaInvest</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00333c",
+                        "secondary-fixed": "#ffe088",
+                        "tertiary": "#003522",
+                        "surface": "#f8fafa",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f2f4f4",
+                        "surface-container-highest": "#e1e3e3",
+                        "outline-variant": "#bfc8ca",
+                        "on-surface": "#191c1d",
+                        "on-surface-variant": "#40484a",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-nav { background: rgba(248, 250, 250, 0.9); backdrop-filter: blur(20px); }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface pt-20">
+    <header class="fixed top-0 z-50 w-full glass-nav border-b border-outline-variant/20">
+        <div class="max-w-7xl mx-auto px-8 flex justify-between items-center h-20">
+            <div class="text-2xl font-bold tracking-tight text-primary font-headline"><a href="index.html">IslaInvest</a></div>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a class="text-primary font-bold border-b-2 border-primary pb-1" href="marketplace.html">Marketplace</a>
+                <a class="text-on-surface-variant font-medium hover:text-primary transition-colors" href="auditor.html">ROI Auditor</a>
+                <a class="text-on-surface-variant font-medium hover:text-primary transition-colors" href="dashboard.html">Dashboard</a>
+                <a class="text-on-surface-variant font-medium hover:text-primary transition-colors" href="resources.html">Resources</a>
+            </nav>
+            <div class="flex items-center space-x-6">
+                <a href="aifinder.html" class="bg-primary text-on-primary px-5 py-2 rounded-sm font-bold text-sm hover:opacity-90 transition-all">AI Finder</a>
+                <span class="material-symbols-outlined text-primary cursor-pointer text-3xl">account_circle</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-8 py-10">
+        <!-- Breadcrumb / Tags -->
+        <span class="text-[10px] font-bold uppercase tracking-widest text-[#735c00] block mb-2">Cap Cana Elite Precinct</span>
+        
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+            <div>
+                <h1 class="font-headline text-5xl font-extrabold text-primary mb-2">Azure Marina Villa</h1>
+                <p class="text-on-surface-variant text-lg">Punta Cana, Dominican Republic</p>
+            </div>
+            <div class="mt-4 md:mt-0 flex items-center bg-tertiary text-on-primary px-4 py-2 rounded shadow-sm gap-2">
+                <span class="material-symbols-outlined text-[18px]">verified_user</span>
+                <span class="text-sm font-bold tracking-wider uppercase">Trust-Shield Verified</span>
+            </div>
+        </div>
+
+        <!-- Image Gallery Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8 h-[500px]">
+            <!-- Main Image -->
+            <div class="md:col-span-3 h-full rounded-xl overflow-hidden cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1200" alt="Villa Exterior" class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-500">
+            </div>
+            <!-- Side Images -->
+            <div class="hidden md:flex flex-col gap-4 h-full">
+                <div class="flex-1 rounded-xl overflow-hidden cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&q=80&w=400" alt="Interior View" class="w-full h-full object-cover hover:scale-[1.05] transition-transform duration-500">
+                </div>
+                <div class="flex-1 rounded-xl overflow-hidden relative cursor-pointer group">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=400" alt="Bedroom View" class="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500 blur-[2px]">
+                    <div class="absolute inset-0 bg-primary/40 flex items-center justify-center">
+                        <span class="text-on-primary font-bold text-xl">+12 Photos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Bar -->
+        <div class="bg-surface-container-low border border-outline-variant/20 rounded-xl p-8 mb-12 flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-outline-variant/30 text-primary">
+            <div class="flex-1 flex items-center gap-4 p-4 md:p-0 justify-center group cursor-default">
+                <span class="material-symbols-outlined text-3xl group-hover:text-tertiary transition-colors">bed</span>
+                <div>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant block mb-1">Bedrooms</span>
+                    <span class="font-headline font-bold text-xl">5 Suites</span>
+                </div>
+            </div>
+            <div class="flex-1 flex items-center gap-4 p-4 md:p-0 justify-center group cursor-default">
+                <span class="material-symbols-outlined text-3xl group-hover:text-tertiary transition-colors">bathtub</span>
+                <div>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant block mb-1">Bathrooms</span>
+                    <span class="font-headline font-bold text-xl">6.5</span>
+                </div>
+            </div>
+            <div class="flex-1 flex items-center gap-4 p-4 md:p-0 justify-center group cursor-default">
+                <span class="material-symbols-outlined text-3xl group-hover:text-tertiary transition-colors">architecture</span>
+                <div>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant block mb-1">Size</span>
+                    <span class="font-headline font-bold text-xl">8,450 sq ft</span>
+                </div>
+            </div>
+            <div class="flex-1 flex items-center gap-4 p-4 md:p-0 justify-center group cursor-default">
+                <span class="material-symbols-outlined text-3xl group-hover:text-tertiary transition-colors">location_on</span>
+                <div>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant block mb-1">Location</span>
+                    <span class="font-headline font-bold text-xl">Cap Cana</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <!-- Left Content -->
+            <div class="lg:col-span-8 flex flex-col gap-12">
+                
+                <!-- The Vision & Security Block -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h2 class="font-headline text-2xl font-bold text-primary mb-4">The Vision</h2>
+                        <p class="text-on-surface-variant leading-relaxed text-sm">
+                            A masterpiece of Caribbean modernism, the Azure Marina Villa sits at the nexus of luxury and lifestyle. Featuring a private dock, direct access to the Juanillo Beach club, and architectural integration with the natural limestone cliffs of Cap Cana. This is not just a residence; it is a high-yield institutional-grade asset.
+                        </p>
+                    </div>
+                    <div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/20 shadow-sm">
+                        <h3 class="font-bold text-sm text-primary mb-6 flex items-center gap-2 uppercase tracking-widest text-[11px]">
+                            <span class="material-symbols-outlined text-secondary-fixed text-[18px]">verified_user</span> Investment Security
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-tertiary text-lg shrink-0">check_circle</span>
+                                <span class="text-xs text-on-surface-variant font-medium">CONFOTUR Tax Exemption Approved</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-tertiary text-lg shrink-0">check_circle</span>
+                                <span class="text-xs text-on-surface-variant font-medium">Title Deed Scanned & Verified (Blockchain)</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-tertiary text-lg shrink-0">check_circle</span>
+                                <span class="text-xs text-on-surface-variant font-medium">Escrow Protected Transaction via Trust-Shield</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONFOTUR Benefits Dark Block -->
+                <div class="bg-primary text-on-primary p-10 rounded-xl relative overflow-hidden shadow-lg">
+                    <div class="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.05)_0%,rgba(0,0,0,0)_100%)] pointer-events-none"></div>
+                    <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <!-- Left text -->
+                        <div>
+                            <h2 class="font-headline text-3xl font-bold mb-4">CONFOTUR Benefits</h2>
+                            <p class="text-sm text-on-primary/80 leading-relaxed mb-8 max-w-sm">
+                                Under Law 158-01, this property is eligible for substantial fiscal incentives for the next 15 years, significantly enhancing your net yield.
+                            </p>
+                            <button class="bg-secondary-fixed text-primary px-6 py-3 rounded font-bold text-sm shadow-md hover:bg-secondary-fixed/90 transition-colors uppercase tracking-wider block text-center lg:inline-block">Claim CONFOTUR Status</button>
+                        </div>
+                        <!-- Right stats grid -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-on-primary/10 p-5 rounded border border-on-primary/5 hover:bg-on-primary/15 transition-colors cursor-default">
+                                <span class="text-[10px] font-bold uppercase tracking-widest block text-on-primary/60 mb-2">Transfer Tax</span>
+                                <span class="text-4xl font-headline font-black block mb-1">0%</span>
+                                <span class="text-[10px] font-medium block text-secondary-fixed">Saves $96,000</span>
+                            </div>
+                            <div class="bg-on-primary/10 p-5 rounded border border-on-primary/5 hover:bg-on-primary/15 transition-colors cursor-default">
+                                <span class="text-[10px] font-bold uppercase tracking-widest block text-on-primary/60 mb-2">Annual IPI</span>
+                                <span class="text-4xl font-headline font-black block mb-1">0%</span>
+                                <span class="text-[10px] font-medium block text-secondary-fixed">Saves $32,000/yr</span>
+                            </div>
+                            <div class="bg-on-primary/10 p-5 rounded border border-on-primary/5 hover:bg-on-primary/15 transition-colors cursor-default">
+                                <span class="text-[10px] font-bold uppercase tracking-widest block text-on-primary/60 mb-2">Income Tax</span>
+                                <span class="text-4xl font-headline font-black block mb-1">0%</span>
+                                <span class="text-[10px] font-medium block text-secondary-fixed">On Rental Revenue</span>
+                            </div>
+                            <div class="bg-on-primary/10 p-5 rounded border border-on-primary/5 hover:bg-on-primary/15 transition-colors cursor-default relative overflow-hidden">
+                                <div class="absolute inset-0 bg-tertiary-fixed/10 pointer-events-none"></div>
+                                <span class="text-[10px] font-bold uppercase tracking-widest block text-on-primary mb-2 relative z-10 text-tertiary-fixed">Total 15yr Gain</span>
+                                <span class="text-2xl font-headline font-black block mb-1 text-tertiary-fixed relative z-10">$540k+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column Sidebar Widget -->
+            <div class="lg:col-span-4">
+                <div class="bg-surface-container-lowest p-8 rounded-xl shadow-lg border border-outline-variant/10 sticky top-28">
+                    <h3 class="font-headline text-xl font-bold text-primary mb-6 flex items-center gap-2">
+                        <div class="bg-primary text-on-primary rounded p-1 flex"><span class="material-symbols-outlined text-[18px]">calculate</span></div>
+                        ROI Auditor
+                    </h3>
+
+                    <!-- Mini Form inputs -->
+                    <div class="space-y-4 mb-8">
+                        <div>
+                            <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant block mb-1">Purchase Price (USD)</label>
+                            <input type="text" value="$ 3,200,000" class="w-full bg-surface-container-low border-none rounded p-3 text-sm font-bold text-primary outline-none" readonly>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-1">
+                                <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant block mb-1">Occupancy %</label>
+                                <input type="number" value="65" class="w-full bg-surface-container-low border-none rounded p-3 text-sm font-bold text-primary outline-none">
+                            </div>
+                            <div class="flex-1">
+                                <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant block mb-1">ADR ($)</label>
+                                <input type="number" value="1450" class="w-full bg-surface-container-low border-none rounded p-3 text-sm font-bold text-primary outline-none">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Financial Summary Lines -->
+                    <div class="space-y-3 mb-6">
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-on-surface-variant font-medium">Gross Annual Revenue</span>
+                            <span class="font-bold text-primary">$343,825</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-on-surface-variant font-medium">Total Expenses (Incl. AC)</span>
+                            <span class="font-bold text-error">-$82,518</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-on-surface-variant font-medium">ITBIS Impact (18%)</span>
+                            <span class="font-bold text-primary">$0 (Tax Exempt)</span>
+                        </div>
+                    </div>
+
+                    <!-- Highlight Net Projected ROI -->
+                    <div class="bg-[#e9f2eb] p-6 rounded-lg text-center border border-tertiary/20 mb-8 cursor-default hover:bg-[#dcf0e7] transition-colors">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-primary block mb-1">Net Projected ROI</span>
+                        <div class="text-4xl font-headline font-black text-primary mb-1">8.2%</div>
+                        <span class="text-xs font-medium text-on-surface-variant block">$261,307 Net/Year</span>
+                    </div>
+
+                    <a href="checkout.html" class="block w-full bg-primary text-on-primary py-4 rounded font-bold text-center tracking-wider hover:bg-primary/90 transition-all shadow-md active:scale-[0.99] mb-4 text-sm">
+                        START DIGITAL CLOSING (RON)
+                    </a>
+                    
+                    <p class="text-[10px] text-center text-on-surface-variant leading-relaxed">
+                        By clicking, you initiate a secure Remote Online Notarization process through Trust-Shield.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-surface-container-low mt-20">
+        <div class="max-w-7xl mx-auto px-16 py-8 flex items-center justify-between text-xs text-on-surface-variant">
+            <div class="font-bold text-primary opacity-60 text-lg">IslaInvest</div>
+            <div class="space-x-4">
+                <a href="#" class="hover:text-primary">Terms of Service</a>
+                <a href="#" class="hover:text-primary">Privacy Policy</a>
+                <span>Language: English</span>
+                <span>Currency: USD</span>
+            </div>
+            <div class="text-right">
+                <span class="block">© 2024 IslaInvest. Regulated by DGII.</span>
+                <span class="block">Partners: CONFOTUR, Trust-Shield.</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
