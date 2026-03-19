@@ -53,15 +53,15 @@ export default function DashboardHub() {
           <div className="flex flex-col gap-4">
              {/* If role is 'inversor', show regular stuff, if 'creador', show creator things. */}
              {role === 'creador' && (
-                <a href="http://127.0.0.1:5500/creator-dashboard.html" className="w-full bg-primary text-white py-4 rounded font-bold uppercase tracking-widest text-sm shadow-md hover:bg-primary/90 transition-all flex justify-center items-center gap-2">
-                  <span className="material-symbols-outlined text-[20px]">domain</span> EJECUTAR CREADOR DASHBOARD
-                </a>
+                <Link href="/dashboard/investor" className="w-full bg-primary text-white py-4 rounded font-bold uppercase tracking-widest text-sm shadow-md hover:bg-primary/90 transition-all flex justify-center items-center gap-2">
+                  <span className="material-symbols-outlined text-[20px]">domain</span> GESTIÓN DE PROYECTOS (BETA)
+                </Link>
              )}
              
              {role === 'admin' && (
-                <a href="http://127.0.0.1:5500/superadmin-dashboard.html" className="w-full bg-error text-white py-4 rounded font-bold uppercase tracking-widest text-sm shadow-md hover:bg-error/90 transition-all flex justify-center items-center gap-2">
-                  <span className="material-symbols-outlined text-[20px]">admin_panel_settings</span> EJECUTAR ROOT (ADMIN)
-                </a>
+                <Link href="/dashboard/admin" className="w-full bg-error text-white py-4 rounded font-bold uppercase tracking-widest text-sm shadow-md hover:bg-black transition-all flex justify-center items-center gap-2">
+                  <span className="material-symbols-outlined text-[20px]">admin_panel_settings</span> EJECUTAR MODO DIOS (ROOT)
+                </Link>
              )}
 
              {role === 'inversor' && (

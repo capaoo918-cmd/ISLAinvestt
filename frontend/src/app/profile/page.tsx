@@ -9,6 +9,7 @@ export default function ProfilePage() {
   const [user, setUser] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const token = localStorage.getItem('auth_token');
@@ -34,8 +35,6 @@ export default function ProfilePage() {
   }, [router]);
 
   if (isLoading) return <div className="min-h-screen bg-surface flex items-center justify-center">Cargando Bóveda...</div>;
-
-  const { t } = useLanguage();
 
   return (
     <div className="min-h-screen bg-surface font-body text-on-surface pb-20">
